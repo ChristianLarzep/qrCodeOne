@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      QR Scanner cutieOS
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+   <ion-input type="text" placeholder="MY QR Code data" [(ngModel)]="qrData">
+   </ion-input>
+ </ion-item>
+ <button ion-button full icon-left (click)="createCode()"><ion-icon name="barcode"></ion-icon>Create Code</button>
+ <button ion-button full icon-left (click)="scanCode()" color="secondary"><ion-icon name="qr-scanner"></ion-icon>Scan Code</button>
+
+ <ion-card *ngIf="createdCode">
+   <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+   <ion-card-content>
+     <p>Value: {{ createdCode }}</p>
+   </ion-card-content>
+ </ion-card>
+
+ <ion-card *ngIf="scannedCode">
+   <ion-card-content>
+     Invitation: {{ scannedCode }}
+   </ion-card-content>
+ </ion-card>
+
+ <ng-container *ngIf="accepted === true;else second">
+   <img src="../../assets/imgs/checked.png">
+ </ng-container>
+<ng-template #second>
+    <ng-container *ngIf="accepted === false;else third">
+          <img src="../../assets/imgs/denied.png">
+    </ng-container>
+</ng-template>
+<ng-template #third></ng-template>
+
+<div *ngIf="scannedCode">
+<button ion-button color="dark" (click)="clean()">Clean</button>
+</div>
+
+</ion-content>
