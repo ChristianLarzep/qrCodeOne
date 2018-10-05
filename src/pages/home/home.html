@@ -15,9 +15,17 @@
  <button ion-button full icon-left (click)="scanCode()" color="secondary"><ion-icon name="qr-scanner"></ion-icon>Scan Code</button>
 
  <ion-card *ngIf="createdCode">
-   <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+   <ngx-qrcode qrc-class="qr" id="qr" qrc-element-type="img" [qrc-value]="createdCode"></ngx-qrcode>
    <ion-card-content>
      <p>Value: {{ createdCode }}</p>
+     <button ion-button (click)="otherShare()">Share</button>
+   </ion-card-content>
+ </ion-card>
+
+
+ <ion-card *ngIf="thepath">
+   <ion-card-content>
+    <p>Path: {{ thepath }}</p>
    </ion-card-content>
  </ion-card>
 
