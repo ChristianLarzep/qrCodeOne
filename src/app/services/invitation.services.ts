@@ -6,7 +6,7 @@ import { Invitation } from '../models/invitation';
 @Injectable()
 export class InvitationService{
   public url: string;
-  public deezerAPI : string;
+  public myAPI : string;
 
   constructor( public http:Http){
     this.myAPI = "/invitationsAPI/"; //proxy en ionic.config.json, ahi esta la url
