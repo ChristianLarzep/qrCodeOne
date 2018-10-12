@@ -7,10 +7,12 @@ import { File } from '@ionic-native/file';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { InvitationService } from './services/invitation.services';
 
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { SocialSharing } from '@ionic-native/social-sharing';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    NgxQRCodeModule
+    NgxQRCodeModule,
+    HttpModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -34,7 +38,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BarcodeScanner,
-    File
+    File,
+    InvitationService
   ]
 })
 export class AppModule {}

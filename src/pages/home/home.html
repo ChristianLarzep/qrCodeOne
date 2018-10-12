@@ -8,10 +8,15 @@
 
 <ion-content padding>
   <ion-item>
-   <ion-input type="text" placeholder="MY QR Code data" [(ngModel)]="qrData">
-   </ion-input>
+   <ion-input type="text" placeholder="Name" [(ngModel)]="invitation.name"></ion-input>
  </ion-item>
- <button ion-button full icon-left (click)="createCode()"><ion-icon name="barcode"></ion-icon>Create Code</button>
+ <ion-item>
+  <ion-input type="text" placeholder="Lastname" [(ngModel)]="invitation.lastname"></ion-input>
+</ion-item>
+ <ion-item>
+  <ion-input type="text" placeholder="Description" [(ngModel)]="invitation.description"></ion-input>
+ </ion-item>
+ <button ion-button full icon-left (click)="createInvitation()"><ion-icon name="barcode"></ion-icon>Create Invitation</button>
  <button ion-button full icon-left (click)="scanCode()" color="secondary"><ion-icon name="qr-scanner"></ion-icon>Scan Code</button>
 
  <ion-card *ngIf="createdCode">
@@ -19,13 +24,6 @@
    <ion-card-content>
      <p>Value: {{ createdCode }}</p>
      <button ion-button (click)="otherShare()">Share</button>
-   </ion-card-content>
- </ion-card>
-
-
- <ion-card *ngIf="thepath">
-   <ion-card-content>
-    <p>Path: {{ thepath }}</p>
    </ion-card-content>
  </ion-card>
 
